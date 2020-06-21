@@ -1,0 +1,43 @@
+﻿@using ZoomLa.BLL
+@using ZoomLa.Model
+@using ZoomLa.Common
+@{
+    M_PointGrounp pgMod = (M_PointGrounp)ViewBag.pgMod;
+    M_Uinfo basemu = (M_Uinfo)ViewBag.basemu;
+    M_UserInfo mu = new B_User().GetLogin();
+    M_Group groupMod = new M_Group();
+    B_User buser = new B_User();
+    B_Group groupBll = new B_Group();
+    mu = buser.GetLogin();
+    groupMod = groupBll.SelReturnModel(mu.GroupID);
+    string truename = mu.UserName;
+    if (!string.IsNullOrEmpty(mu.TrueName))
+    {
+        truename = mu.TrueName;
+    }
+}
+<div class="container padding0_xs">
+<div class="myuser_top">
+<div class="media">
+<div class="media-left"><a href="/User/Info/Index"><img class="media-object" src="@mu.UserFace" alt="@mu.UserName" onerror="javascript:this.src='/Images/userface/noface.png';" /></a></div>
+<div class="media-body media-middle">
+<h4 class="media-heading">@truename</h4>
+<p>
+会员组：@groupMod.GroupName<a href="#"></a><br />
+<!--余额：<a href="/user/Info/ConsumeDetail?SType=1" title="点击查看资金明细">@mu.Purse</a>
+<span>积分：@mu.UserExp</span>
+-->
+</p>
+</div>
+</div>
+</div>
+<div class="myuser_msg" hidden>
+<ul>
+<li><a href="#"><span>0</span>未读消息</a></li>
+<li><a href="#"><span>0</span>待收货</a></li>
+<li><a href="#"><span>0</span>待付款</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+
+</div>

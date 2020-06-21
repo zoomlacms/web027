@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Areas/AdminMVC/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>学科管理</title>
+}
+@section content{
+    <div id="BreadDiv" class="container-fluid mysite">
+        <div class="row">
+            <ol id="BreadNav" class="breadcrumb navbar-fixed-top">
+                <li><a href='@(CustomerPageAction.customPath2)I/Main.aspx'>工作台</a></li>
+                <li><a href='Papers_System_Manage'>教育模块</a></li>
+                <li class="active">学科管理<a href='AddSubject'>[添加学科]</a></li>
+            </ol>
+        </div>
+    </div>
+    @Html.Partial("SubjectManage_List")
+    <div>
+        <button type="button" onclick='mvcpage.bat({url: "Subject_Del", confirm: "确认删除选中学科吗？"});' class="btn btn-primary">批量删除</button>
+    </div>
+}
+@section script{
+}

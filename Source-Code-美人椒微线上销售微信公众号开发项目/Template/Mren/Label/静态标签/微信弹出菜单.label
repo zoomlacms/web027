@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>306</LabelID>
+    <LabelName>微信弹出菜单</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;!--menu float begin--&gt;
+&lt;section class="visible-xs"&gt;
+&lt;div class="mask_menu" style="display:none;"&gt;&lt;/div&gt;
+&lt;div class="menu" id="menufloat"&gt;&lt;i class="fa fa-th-large icon-menu"&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;div class="menu-c" id="menufloat-c" style="display:none;"&gt;
+&lt;div class="menu-c-out"&gt;
+&lt;div class="menu-c-inner"&gt;
+&lt;a class="a-home" href="/" title="首页"&gt;&lt;/a&gt;
+&lt;a class="a-tel" href="tel:400-888-1711" title="联系客服"&gt;&lt;/a&gt;
+&lt;a id="serviceUrl" class="a-server" href="https://jq.qq.com/?_wv=1027&amp;k=42ZKjKV" title="客服"&gt;&lt;/a&gt;
+&lt;a class="a-member" href="/wxpromo.aspx?r=/User/" title="会员中心"&gt;&lt;/a&gt;
+&lt;a class="a-search" href="{ZL:GetNodeLinkUrl(7)/}" title="搜索"&gt;&lt;/a&gt;
+&lt;a class="a-cart" href="/Cart/Cart.aspx?ProClass=1" title="购物车"&gt;&lt;/a&gt;
+&lt;a class="a-collect" href="/wxpromo.aspx?r=/Class_11/NodePage.aspx" id="collect-link" title="收藏"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;!--menu float end--&gt; </LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,601 @@
+{ZL.Source id="节点栏目信息数据源"/}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteTitle/}</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?id={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script type="text/javascript" src="{$CssDir/}js/server.js"></script>
+<style type="text/css">
+#nav li#Menu0 a:hover{ text-decoration:underline;}
+#nav li#Menu0 a{background:url({$CssDir/}Images/top_nav.gif) no-repeat 0px -42px; font-weight:bold; color:#fff; text-decoration:none;width:77px; height:38px; display:block;}
+</style>
+</head> 
+<body>
+<div class="relative">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" id="home_scolls">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img alt='逐浪CMS' src="{$CssDir/}images/logo.png" /></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li><a href="/" target="_blank">首页</a></li>
+<li class="active"><a href="{ZL:GetNodeLinkUrl(1)/}">产品系列</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(2)/}">关于美人椒</a></li>
+<li><a href="/index" target="_blank">美人椒社区</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(3)/}">新闻资讯</a></li>
+<li><a href="#" target="_blank">授权代理商</a></li>
+<li><a href="{ZL:GetInfoUrl(2)/}">联系我们</a></li>
+</ul>
+<form class="navbar-form navbar-left" role="search" method="get" action="/Search/SearchList" target="_blank">
+<div class="input-group">
+<input type="text" class="form-control" name="keyword" placeholder="全站检索">
+<span class="input-group-btn">
+<button type="submit" class="btn btn-default">搜索</button>
+</span>
+</div><!-- /input-group -->
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li class="nav_user"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>登录 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="/User/" target="_blank">用户登录</a></li>
+<li><a href="/User/Register" target="_blank">用户注册</a></li>
+<li><a href="/User/Info/UserInfo" target="_blank">注册信息</a></li>
+<li><a href="javascript:;" onClick="LogoutFun();">安全退出</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 导航到此结束 -->
+
+
+<div class="main" id="scene">
+<div class="product">
+<div class="w1024">
+        <h1>美人椒鲜椒酱系列</h1>
+        <div class="pro_video"><a href="javascript:;" id="view_video">观看视频</a></div>
+        <p>&nbsp;</p>
+        <p><img src="{$CssDir/}images/pro01.jpg" /></p>
+        <p>&nbsp;</p>
+        <div class="pro_arrow"><span></span></div>
+    </div>
+    <div class="pro_sec pro_sec1">
+        <div class="bg">
+            <img src="{$CssDir/}images/pro02.jpg" />
+            <div class="sec_txt_11"><span>选材鲜</span>富硒农场种植，早9点前摘取</div>
+            <div class="sec_txt_21">所采用辣椒均产自中国生态硒谷•丰城天然农场，富含防癌硒元素，光照自然充分，每条辣椒早9点前人工摘取，水分充足，营养均衡，脆度最佳，确保辣椒至高新鲜度。</div>
+        </div>
+    </div>
+    <div class="pro_sec pro_sec2">
+        <div class="bg">
+            <img src="{$CssDir/}images/pro03.jpg" />
+            <div class="sec_txt_11"><span>工艺鲜</span>6小时限时入坛，睡足100天</div>
+            <div class="sec_txt_21">新鲜辣椒自枝上摘取至腌制入坛，严格限时6小时内完成。采用独家传承秘制配方老坛腌制，每坛恒温睡足100天，充分发酵，让辣椒和配料完全融入，使其色、香、味再次升华。</div>
+        </div>
+    </div>
+    <div class="pro_sec pro_sec3">
+        <div class="bg">
+            <img src="{$CssDir/}images/pro08.jpg" />
+            <div class="sec_txt_11" style="color:#000"><span>味道鲜</span>18个月恒久保鲜，N种鲜吃法</div>
+            <div class="sec_txt_21" style="color:#000">尊重辣椒天然原生鲜味，采用独家传承秘制保鲜技术，使鲜椒酱能够持续保鲜18个月。凉拌、蘸酱、拌面、炒菜、蒸菜等N种新鲜吃法，极致新鲜美味，充分满足你的味蕾享受。</div>
+        </div>
+    </div>
+    <div class="package">
+        <h1>全产业链包装</h1>
+        <h4>从田间到餐桌，美人椒鲜椒酱全产业链</h4>
+        <div class="package_step">
+            <div class="package_list clearfix">
+                <div class="package_box psb1">
+                    <b></b>
+                    <span>育种</span>
+                </div>
+                <div class="package_box psb2">
+                    <b></b>
+                    <span>种植</span>
+                </div>
+                <div class="package_box psb3">
+                    <b></b>
+                    <span>采摘</span>
+                </div>
+                <div class="package_box psb4">
+                    <b></b>
+                    <span>清洗</span>
+                </div>
+                <div class="package_box psb5">
+                    <b></b>
+                    <span>切制</span>
+                </div>
+                <div class="package_box psb6">
+                    <b></b>
+                    <span>腌制（睡眠）</span>
+                </div>
+                <div class="package_box psb7">
+                    <b></b>
+                    <span>萃取</span>
+                </div>
+            </div>
+        </div>
+        <div class="package_step">
+            <div class="package_list clearfix">
+                <div class="package_box psb8">
+                    <b></b>
+                    <span>调味</span>
+                </div>
+                <div class="package_box psb9">
+                    <b></b>
+                    <span>熬制</span>
+                </div>
+                <div class="package_box psb10">
+                    <b></b>
+                    <span>灌装</span>
+                </div>
+                <div class="package_box psb11">
+                    <b></b>
+                    <span>包装</span>
+                </div>
+                <div class="package_box psb12">
+                    <b></b>
+                    <span>仓储</span>
+                </div>
+                <div class="package_box psb13">
+                    <b></b>
+                    <span>物流</span>
+                </div>
+                <div class="package_box psb14">
+                    <b></b>
+                    <span>餐桌</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history">
+        <div class="w1024 clearfix">
+            <div class="history_txt">
+                <h1>美人椒的前世今生</h1>
+                <h5>400年前漂洋过海到神州大地</h5>
+                <P>辣椒原产地南美热带，墨西哥是辣椒的发源地，全球约一半辣椒都生长于墨西哥境内，辣椒被墨西哥视为“国食”。辣椒于明代传入我国，《遵生八笺》其中《燕闲清赏笺•四时花纪》（明万历初年即1591年高濂撰）载：番椒“丛生白花，子俨秃笔头，味辣色红，甚可观”。章穆《调疾饮食辨》（成书于嘉庆十八年（1814年）载：“近数十年，群耆一物名辣枚又名辣椒。”辣椒传入我国经过历代劳动者辛勤培育，其品种之多跃居世界首位，如柿子椒、灯笼椒、羊角椒、佛手椒等，美人椒便是其中最优质的品种之一。</P>
+            </div>
+            <div class="history_img"><img src="{$CssDir/}images/pro04.jpg" /></div>
+        </div>
+    </div>
+    <div class="pro_diffent">
+        <h1><span>鲜椒酱</span>要从育种抓起</h1>
+        <h5>一张表告诉你美人椒和普通朝天椒有何不同？</h5>
+        <div class="pro_table">
+            <div class="w1024">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <th>项目</th>
+                        <th>美人椒朝天椒</th>
+                        <th>普通朝天椒</th>
+                    </tr>
+                    <tr>
+                        <td>果实生长方式</td>
+                        <td>单生</td>
+                        <td>簇生</td>
+                    </tr>
+                    <tr>
+                        <td>长相</td>
+                        <td>尖尖长长，身子微弯</td>
+                        <td>相对粗短，身子偏直</td>
+                    </tr>
+                    <tr>
+                        <td>椒巴</td>
+                        <td>粗壮</td>
+                        <td>纤细</td>
+                    </tr>
+                    <tr>
+                        <td>脆度</td>
+                        <td>皮薄爽脆</td>
+                        <td>皮厚柔韧</td>
+                    </tr>
+                    <tr>
+                        <td>甜度</td>
+                        <td>高</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>维生素C含量</td>
+                        <td>高</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>胡萝卜素含量</td>
+                        <td>高</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>辣红素含量</td>
+                        <td>高</td>
+                        <td>低</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="environment">
+        <h1>美人椒生长的美好故乡</h1>
+        <h5>中国生态硒谷&中国长寿之乡.江西丰城天然农场 </h5>
+        <p>&nbsp;</p>
+        <p class="evm_pic"><img src="{$CssDir/}images/pro05.jpg" /><img src="{$CssDir/}images/pro05_2.jpg" /></p>
+        <p>&nbsp;</p>
+        <p><img src="{$CssDir/}images/pro06.jpg" /></p>
+    </div>
+    <div class="process">
+        <div class="w1024">
+            <table width="100%">
+                <tr>
+                    <td width="25%">
+                        <a class="process_btn" href="javascript:;"><span>采摘</span>鲜辣椒是鲜椒酱的灵魂</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>鲜辣椒是鲜椒酱的灵魂<br />敢为天下鲜 采摘只在早9点前</h2>
+                                <p>
+                                    为保证辣椒新鲜度，所用每条辣椒只在早9点前人工无巴摘取。
+                                    一天当中，9点前的辣椒水分充足，营养均衡，脆度最佳，最为新鲜。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="25%">
+                        <a class="process_btn" href="javascript:;"><span>清洗</span>自然水 自然鲜</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>自然水 自然鲜<br />拒绝自来水 只用老井水</h2>
+                                <p>
+                                    从不用自来水洗，只用百年富硒老井水清洗。搅拌粗洗+高速喷淋洗+高风冷风吹干，更健康、干净、新鲜。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="25%">
+                        <a class="process_btn" href="javascript:;"><span>切制</span>领先设备 直切了当</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>领先设备 直切了当<br />匀 美 快 只为更鲜</h2>
+                                <p>
+                                    采用日本进口高速切椒机，
+                                    切块大小均匀，精致美观，关键是速度快，确保辣椒以最新鲜状态入坛腌制。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="25%">
+                        <a class="process_btn" href="javascript:;"><span>腌制（睡眠）</span>美人觉对于美人椒是必的</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>美人觉对于美人椒是必须的<br />老坛腌制 睡足100天</h2>
+                                <p>
+                                    新鲜辣椒自枝上摘取至腌制入坛，严格限时6小时内完成。
+                                    采用独家传承秘制配方老坛腌制，每坛放置恒温睡眠舱睡足100天，
+                                    让辣椒充分发酵，让辣椒和搭配食材分子之间互相融入，
+                                    使其色、香、味再次升华，色泽更艳，香味更醇，味道更鲜。
+                                    （新鲜是睡出来的，足足睡满100天；睡足100天，让新鲜更新鲜；一睡到底，睡足100天）
+
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>萃取</span>纯 不是装出来的</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>纯 不是装出来的<br />用数据说话 为低盐代言</h2>
+                                <p>
+                                    7道精湛萃取工艺提纯，将腌制发酵后辣椒脱水、脱盐。
+                                    提纯后，脱水≥40%，不能再干；盐度≤7.5度，低于腌制品、酱料国家低盐健康标准盐度9度。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>调味</span> 口味不止是偏好 更是一种传承</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>口味不止是偏好 更是一种传承<br />鲜椒酱世家 独家20代传承秘制配方</h2>
+                                <p>
+                                    美人椒秘制配方历经20代人不断精进调制，终于调配出目前最适合东方人味蕾的调味秘方。
+                                    拥有蒜蓉、原味、豆豉、萝卜四种最受欢迎口味，总有一款让你喜欢。
+                                    精选上等山茶油、菜籽油、蒜、萝卜、姜、豆豉、冰糖等作为配材，黄金比例精准搭配，
+                                    确保每一批次鲜椒酱品质的一致性、稳定性，持久新鲜。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>熬制</span>美味是熬出来的z</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>美味是熬出来的<br />均衡比例熬制 鲜辣香放出来</h2>
+                                <p>
+                                    山茶油和菜籽油均衡比例配置，加温至设定温度恒温熬制，
+                                    充分激发和释放鲜辣酱的鲜、辣、香，形成刺激味蕾的极致美味。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>包装</span>鲜与美可兼得</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>鲜与美可兼得<br />美于外 鲜于内</h2>
+                                <p>
+                                    食品级马口铁铁罐，长期保鲜保质，低碳环保，携带方便易开启。
+                                    包装设计时尚美观，自用提逼格，予人显档次。4罐装、7罐装、16罐装三种套装，任君选择。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>灌装</span>民以食为天 食以安为先 </a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>民以食为天 食以安为先</h2>
+                                <p>
+                                    封装前高温UHT管式杀菌，可消灭巴氏杀菌，大肠杆菌、伤寒菌、细核杆菌等细菌。
+                                    德国进口全自动流水线无菌、无尘封装，一次压制成型，防漏油漏料，更坚固抗压，更安全卫生。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>储存</span>长鲜才是真鲜 恒久保鲜18个月</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>长鲜才是真鲜 恒久保鲜18个月</h2>
+                                <p>
+                                    将封罐鲜椒酱，置于阴凉、干燥、避光处为佳。
+                                    独家传承秘制保鲜技术，可恒久保鲜18个月，开罐新鲜如初。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>物流</span>铁骨硬汉 运输携带都方便</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>铁骨硬汉 运输携带都方便</h2>
+                                <p>
+                                    铁罐采用加固结构设计，抗压、抗震、抗摔，适应各种交通运输工具。
+                                    MINI设计造型，旅行、上班、郊游、送礼，携带轻松方便，入手说走就走。
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="process_btn" href="javascript:;"><span>餐桌</span>一鲜天下无难事</a>
+                        <div class="process_detail">
+                            <a href="javascript:;" class="close"></a>
+                            <div>
+                                <h2>一鲜天下无难事<br />N种鲜吃法 满足吃货的一切鲜想法</h2>
+                                <p>
+                                    凉拌、蘸酱、拌面、炒菜、蒸菜等N种新鲜吃法，想怎么吃，就怎么吃，
+                                    极致新鲜美味，充分满足你的味蕾享受。
+                                    （挑、蘸、拌、炒、煲等N种吃法）
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="pro_diffent">
+        <h1>一张图告诉你美人椒<span>鲜椒酱</span>和其它辣椒酱有何区别？</h1>
+        <div class="pro_table2">
+            <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th class="txr">项 目</th>
+                    <th width="376">美人椒鲜椒酱</th>
+                    <th>其它辣椒酱</th>
+                </tr>
+                <tr>
+                    <td class="txr">色泽</td>
+                    <td>鲜艳（原生红色）</td>
+                    <td>黑色、暗红</td>
+                </tr>
+                <tr>
+                    <td class="txr">口感</td>
+                    <td>爽脆</td>
+                    <td>绵柔</td>
+                </tr>
+                <tr>
+                    <td class="txr">味道</td>
+                    <td>原生鲜、原生香</td>
+                    <td>没有原生鲜味，香料散发出来的香</td>
+                </tr>
+                <tr>
+                    <td class="txr">吃法</td>
+                    <td>凉拌、蘸酱、拌面、炒菜、蒸菜等一切用途</td>
+                    <td>用途局限，只能实现1-2种用途</td>
+                </tr>
+                <tr>
+                    <td class="txr">包装</td>
+                    <td>中国唯一便利性的铁罐灌装，时尚美观，保质期长</td>
+                    <td>传统玻璃、塑料瓶装，易碎，保质期短</td>
+                </tr>
+            </table>
+        </div>
+        <div class="w1024">
+            <p>&nbsp;</p>
+            <p><img src="{$CssDir/}images/pro07.jpg" /></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <h1>专家告诉你为何要适当吃<span>鲜椒酱</span>？</h1>
+            <p>&nbsp;</p>
+            <p>富含维生素C、富含胡萝卜素、刺激大脑释放内啡肽、缓解疼痛感、降低胆固醇、降低低密度脂蛋白、降低甘油三酸酯含量、促进血液循环、预防心脏病、预防中风、刺激唾液、刺激胃液分泌、健脾胃、促进食欲、祛除胃寒病、预防感冒、预防动脉硬化、预防夜盲症、预防坏血病、祛风散寒、舒筋活络、杀虫、止痒......</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- 视频弹窗 -->
+<div class="bgx"></div>
+<div class="winbox">
+    <a href="javascript:;" class="win_close"> close </a>
+    <div class="win_video">
+        <div class="flowplayer">
+            <embed src="http://player.youku.com/player.php/sid/XMTM0MTA5NzcwNA==/v.swf" allowFullScreen="true" quality="high" width="100%" height="570" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
+{ZL.Label id="响应式全站底部"/}
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script type="text/javascript" src="{$CssDir/}JS/parallax.js"></script>
+<script>
+//手机下导航侧边栏效果
+$(function() {
+  $('button.navbar-toggle').click(function(){ 
+    $('body').toggleClass('out');
+    $('nav.navbar-fixed-top').toggleClass('out');
+    if ($('body').hasClass('out')) {
+      $(this).focus();
+    } else {
+      $(this).blur();
+    }
+  });
+});
+
+$(document).click(function(e) {
+  if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+    e.preventDefault();
+    $('button.navbar-toggle').trigger('click');
+  }
+}).keyup(function(e) {
+  if (e.keyCode == 27 && $('body').hasClass('out')) {
+    $('button.navbar-toggle').trigger('click');
+  } 
+});
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}	   
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".nav_user>a").html(data.UserName/*+"的会员中心"*/);
+		$(".nav_user .dropdown-menu li:nth-child(1) a").html("会员中心");
+		$(".nav_user .dropdown-menu li:nth-child(2)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+function ShowBody()
+{
+	$(".home_login").remove();
+	$(".home_main").show();	
+}
+$(function () {
+    inview();
+    if (!isphone()) {
+        var tablew = $(".pro_table2").find("table").width();
+        var thw = (tablew - $(".pro_table2").find("table").find("th").eq(1).outerWidth(true)) / 2 - 112;
+        $(".pro_table2").find("table").find("th").eq(0).css({ "width": thw });
+        $(window).resize(function () {
+            var tablew = $(".pro_table2").find("table").width();
+            var thw = (tablew - $(".pro_table2").find("table").find("th").eq(1).outerWidth(true)) / 2 - 112;
+            $(".pro_table2").find("table").find("th").eq(0).css({ "width": thw });
+        });
+    }
+
+    //打开弹窗
+    $(".process_btn").click(function () {
+        var par = $(this).parent();
+        $(".winbg").show();
+        par.find(".process_detail").show();
+    });
+
+    //关闭弹窗
+    $(".close").click(function () {
+        $(".winbg").hide();
+        $(".process_detail").hide();
+    });
+})
+function inview() {
+    $('.pro_sec').bind('inview', function (event, visible) {
+        if (visible == true) {
+            $(this).addClass("inview");
+        }
+    });
+}
+//弹出视频
+$("#view_video").on("click", function () {
+    $(".bgx").show();
+    $(".winbox").show();
+});
+$(".win_close").on("click", function () {
+    $(".bgx").hide();
+    $(".winbox").hide();
+});
+
+</script>

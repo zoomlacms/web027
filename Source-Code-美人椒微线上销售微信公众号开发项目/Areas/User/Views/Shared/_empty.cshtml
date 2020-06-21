@@ -1,0 +1,66 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link type="text/css" rel="stylesheet" href="/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/dist/css/font-awesome.min.css" />
+<link type="text/css" rel="stylesheet" href="/App_Themes/control.css" />
+<link type="text/css" rel="stylesheet" href="/App_Themes/User.css" />
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<script src="/JS/jquery-1.11.1.min.js"></script>
+<script src="/JS/jquery.validate.min.js"></script>
+<script src="/JS/ZL_Regex.js"></script>
+<script src="/JS/ICMS/ZL_Common.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<link href="/dist/css/weui.min.css" rel="stylesheet" />
+<link href="/Template/Mren/style/global.css?Version=@Call.GetLabel("{ZL.Label id=\"前端样式版本号\"/}")" rel="stylesheet"/>
+@RenderSection("head")
+</head>
+<body class="myuser_body">
+@RenderSection("content")
+@RenderSection("script")
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"在线客服\"/}"))
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"微信弹出菜单\"/}"))
+@MvcHtmlString.Create(Call.GetLabel("{ZL.Label id=\"微信底部\"/}"))
+</body>
+</html>
+<script>
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}	   
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+</script>

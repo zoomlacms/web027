@@ -1,0 +1,71 @@
+﻿@model ZoomLa.Model.Exam.M_Exam_PaperNode
+@{
+    Layout = "~/Areas/AdminMVC/Views/Shared/_layout.cshtml";
+}
+@section head{
+    <title>添加试题分类</title>
+}
+@section content{
+<div id="BreadDiv" class="container-fluid mysite">
+    <div class="row">
+        <ol id="BreadNav" class="breadcrumb navbar-fixed-top">
+            <li><a href='@(CustomerPageAction.customPath2)I/Main.aspx'>工作台</a></li>
+            <li><a href='Papers_System_Manage'>教育模块</a></li>
+            <li><a href='Papers_System_Manage'>试卷管理</a></li>
+            <li><a href='Paper_Class_Manage'>试卷分类管理</a></li>
+            <li>添加试卷分类</li>
+        </ol>
+    </div>
+</div>
+<form method="post" action="@MVCHelper.GetAction("PaperClass_Add",Request)">
+    <table class="table table-striped table-bordered table-hover    ">
+        <tr>
+            <td class="td_m text-right">类别名称:</td>
+            <td>
+                @Html.TextBoxFor(m => m.TypeName, new { @class = "form-control text_300" })
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right">所属类别:</td>
+            <td>
+                @Html.DropDownListFor(m => m.Pid, ViewBag.typelist as SelectList, new { @class = "form-control text_300" })
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right">备注:</td>
+            <td>
+                @Html.TextAreaFor(m => m.Remind, new { @class = "form-control text_300", @style = "height:150px;" })
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right">排序:</td>
+            <td>
+                @Html.TextBoxFor(m => m.OrderID, new { @class = "form-control text_300 num" })
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-primary">保存分来</button>
+                <a href="Paper_Class_Manage" class="btn btn-primary">返回分类</a>
+            </td>
+        </tr>
+    </table>
+</form>
+}
+@section script{
+<script type="text/javascript" src="/JS/ZL_Regex.js"></script>
+<script>
+        $(function () {
+            ZL_Regex.B_Num(".num");
+            validate.zl_init($("form"), {
+                rules: {
+                    TypeName: { required: true }
+                },
+                messages: {
+                    TypeName: { required: "类别名称不能为空" }
+                },
+            }, { placement: 'right', style: 'green' });
+        });
+</script>
+}

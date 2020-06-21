@@ -1,0 +1,130 @@
+{ZL.Source id="节点栏目信息数据源"/}<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteTitle/}</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?id={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head> 
+<body>
+{ZL.Label id="响应式全站头部"/}
+
+<div class="shop_banner"><span>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}</span></div>
+
+<div class="container">
+<div class="row padding5">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padding10 margin_top20 hidden-xs">
+<div class="shop_left">
+<div class="shop_left_t">商城热卖</div>
+
+<div class="shop_left_c">
+<ul>
+{ZL.Label id="输出指定节点热卖商品列表" NodeID="7" ShowNum="10" TitleNum="30" /}
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 padding10 margin_top20">
+<div class="mySites hidden-xs">
+<ol class="breadcrumb" style="margin-bottom:0;">
+<li><a href="/">首页</a></li>
+{ZL.Label id="输出多级节点导航_V3" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="30" /}
+<li class="active">商品列表</li>
+</ol>
+</div>
+
+<div class="shop_rlist">
+{ZL.Label id="输出指定节点商品列表" NodeID="{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}" ShowNum="18" TitleNum="20" ClassName="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding10" /}
+</div>
+
+</div>
+</div>
+</div>
+
+{ZL.Label id="响应式全站底部"/}
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script>
+//手机下导航侧边栏效果
+$(function() {
+  $('button.navbar-toggle').click(function(){ 
+    $('body').toggleClass('out');
+    $('nav.navbar-fixed-top').toggleClass('out');
+    if ($('body').hasClass('out')) {
+      $(this).focus();
+    } else {
+      $(this).blur();
+    }
+  });
+});
+
+$(document).click(function(e) {
+  if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+    e.preventDefault();
+    $('button.navbar-toggle').trigger('click');
+  }
+}).keyup(function(e) {
+  if (e.keyCode == 27 && $('body').hasClass('out')) {
+    $('button.navbar-toggle').trigger('click');
+  } 
+});
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}	   
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".nav_user>a").html(data.UserName/*+"的会员中心"*/);
+		$(".nav_user .dropdown-menu li:nth-child(1) a").html("会员中心");
+		$(".nav_user .dropdown-menu li:nth-child(2)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+function ShowBody()
+{
+	$(".home_login").remove();
+	$(".home_main").show();	
+}
+</script>

@@ -1,0 +1,297 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>美人椒-老实人食品旗下电商品牌</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="/dist/css/animate.min.css" rel="stylesheet"/>
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" id="home_scolls">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">智能切换导航</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="/"><img alt='逐浪CMS' src="{$CssDir/}images/logo.png" /></a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="active"><a href="/">首页</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(7)/}">商城</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(1)/}">产品系列</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(2)/}">关于美人椒</a></li>
+<li><a href="/index" target="_blank">美人椒社区</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(3)/}">新闻资讯</a></li>
+<li><a href="{ZL:GetInfoUrl(5)/}">授权代理商</a></li>
+<li><a href="{ZL:GetInfoUrl(2)/}">联系我们</a></li>
+</ul>
+<form class="navbar-form navbar-left" role="search" method="get" action="/Search/SearchList" target="_blank">
+<div class="input-group">
+<input type="text" class="form-control" name="keyword" placeholder="全站检索">
+<span class="input-group-btn">
+<button type="submit" class="btn btn-default">搜索</button>
+</span>
+</div><!-- /input-group -->
+</form>
+<ul class="nav navbar-nav navbar-right">
+<li class="nav_user"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>登录 <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="/User/" target="_blank">用户登录</a></li>
+<li><a href="/User/Register" target="_blank">用户注册</a></li>
+<li><a href="/User/Info/UserInfo" target="_blank">注册信息</a></li>
+<li><a href="javascript:;" onClick="LogoutFun();">安全退出</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- 导航到此结束 -->
+
+<div class="carousel slide Home_banner" id="carousel-example-generic" data-ride="carousel" keyboard="false">
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+</ol>
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+<img alt="First slide []" src="{$CssDir/}images/banner1.jpg"  data-holder-rendered="true">
+</div>
+<div class="item">
+<img alt="First slide []" src="{$CssDir/}images/banner2.jpg"  data-holder-rendered="true">
+</div>
+</div>
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+</div>
+<!--banner到此结束-->
+
+
+<div class="container Home_about">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="Home_about_txt">
+    <img src="{$CssDir/}images/idx1.jpg" alt="关于美人椒" />
+    <a href="{ZL:GetNodeLinkUrl(2)/}" class="iat1">关于美人椒</a>
+</div>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="Home_about_video">
+    <img src="{$CssDir/}images/idx2.jpg" alt="观看视频" />
+    <a href="{ZL:GetNodeLinkUrl(1)/}" class="iat2">观看视频</a>
+</div>
+</div>
+</div>
+</div>
+<!--Home_about end-->
+
+<div class="container-fulid" id="scene">
+<div class="sec sec1">
+    <div class="bg">
+        <img src="{$CssDir/}images/sec_1.jpg" />
+        <div class="sec_txt_1"><img src="{$CssDir/}images/idx_txt1.png" /></div>
+        <div class="sec_txt_2">精致迷你外观，精选优质辣椒，自然发酵工序，有机茶油、菜籽油精心调制，美味更健康。</div>
+    </div>
+    <div class="layer" data-depth="0.6"><div class="ice chili" id="chili"><img src="{$CssDir/}images/sec_img1.png" /></div></div>
+    <div class="layer" data-depth="1"><div class="ice ice1" id="ice1"><img src="{$CssDir/}images/sec_img2.png" /></div></div>
+    <div class="layer" data-depth="0.4"><div class="ice ice2" id="ice2"><img src="{$CssDir/}images/sec_img3.png" /></div></div>
+    <div class="layer" data-depth="0.8"><div class="ice ice3" id="ice3"><img src="{$CssDir/}images/sec_img4.png" /></div></div>
+    <div class="layer" data-depth="0.5"><div class="ice ice4" id="ice4"><img src="{$CssDir/}images/sec_img5.png" /></div></div>
+</div>
+</div>
+
+<div class="container-fulid sec sec2">
+<div class="bg">
+    <img src="{$CssDir/}images/sec_2.jpg" alt="鲜美辣椒" />
+    <div class="sec_txt_3"><img src="{$CssDir/}images/idx_txt2.png" /></div>
+    <div class="sec_txt_4">精致迷你外观，精选优质辣椒，自然发酵工序，有机茶油、菜籽油精心调制，美味更健康。</div>
+</div>
+</div>
+
+<div class="Home_product">
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated Home_product1">
+        <img src="{$CssDir/}images/series_1.png" alt="原味版美人椒"/>
+        <a href="" class="btn btn-default">原味版美人椒</a>
+        </div>
+        
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated Home_product2">
+        <img src="{$CssDir/}images/series_1.png" alt="萝卜美人椒"/>
+        <a href="" class="btn btn-default">萝卜美人椒</a>
+        </div>
+        
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated Home_product3">
+        <img src="{$CssDir/}images/series_1.png" alt="豆豉美人椒"/>
+        <a href="" class="btn btn-default">豆豉美人椒</a>
+        </div>
+        
+		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated Home_product4">
+        <img src="{$CssDir/}images/series_1.png" alt="蒜蓉美人椒"/>
+        <a href="" class="btn btn-default">蒜蓉美人椒</a>
+        </div>
+	</div>
+</div>
+</div>
+
+<div class="container-fulid Home_bbs">
+<div class="Home_bbs_box">
+<a href="index"><b></b>点击进入</a>
+</div>
+</div>
+
+
+<div class="container Home_news">
+<div class="row">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<h2>美人椒新闻<span>NEWS</span><div class="pull-right"><a href="{ZL:GetNodeLinkUrl(4)/}">MORE</a></div></h2>
+<ul>
+{ZL.Label id="首页输出新闻列表" NodeID="4" ShowNum="2" TitleNum="30" /}
+</ul>
+</div>
+
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<h2>媒体报道<span>MEDIA REPORTS</span><div class="pull-right"><a href="{ZL:GetNodeLinkUrl(5)/}">MORE</a></div></h2>
+<ul>
+{ZL.Label id="首页输出新闻列表" NodeID="5" ShowNum="2" TitleNum="30" /}
+</ul>
+</div>
+</div>
+</div>
+
+
+
+{ZL.Label id="在线客服"/}
+{ZL.Label id="微信弹出菜单"/}
+<div class="foot">
+<div class="container">
+{$Copyright/}
+</div>
+</div>
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script type="text/javascript" src="{$CssDir/}JS/parallax.js"></script>
+<script>
+//手机下导航侧边栏效果
+$(function() {
+  $('button.navbar-toggle').click(function(){ 
+    $('body').toggleClass('out');
+    $('nav.navbar-fixed-top').toggleClass('out');
+    if ($('body').hasClass('out')) {
+      $(this).focus();
+    } else {
+      $(this).blur();
+    }
+  });
+});
+
+$(document).click(function(e) {
+  if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+    e.preventDefault();
+    $('button.navbar-toggle').trigger('click');
+  }
+}).keyup(function(e) {
+  if (e.keyCode == 27 && $('body').hasClass('out')) {
+    $('button.navbar-toggle').trigger('click');
+  } 
+});
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}	   
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+
+$(document).click(function(e) {
+  if (!$(e.target).closest('.navbar-collapse, button.navbar-toggle').length && $('body').hasClass('out')) {
+    e.preventDefault();
+    $('button.navbar-toggle').trigger('click');
+  }
+}).keyup(function(e) {
+  if (e.keyCode == 27 && $('body').hasClass('out')) {
+    $('button.navbar-toggle').trigger('click');
+  } 
+});
+
+var buser = new B_User();//会员ajax登录状态需要结合JS/Controls/B_User.js引用同步生效
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".nav_user>a").html(data.UserName/*+"的会员中心"*/);
+		$(".nav_user .dropdown-menu li:nth-child(1) a").html("会员中心");
+		$(".nav_user .dropdown-menu li:nth-child(2)").remove();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+function ShowBody()
+{
+	$(".home_login").remove();
+	$(".home_main").show();	
+}
+
+$(function () {
+	// 视差
+	var scene = document.getElementById('scene');
+	var parallax = new Parallax(scene);
+	inview()
+})
+
+function inview() {
+	$('.sec').bind('inview', function (event, visible) {
+		if (visible == true) {
+			$(this).addClass("inview");
+		}
+	});
+}
+$().ready(function(e) {
+    $(".weixin_bottom li:nth-child(1)").addClass("active");
+});
+</script>

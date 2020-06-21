@@ -1,0 +1,58 @@
+{ZL.Source id="节点栏目信息数据源"/}<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>众筹报表</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?id={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Label/ZLHelper.js"></script>
+</head> 
+<body>
+
+<div style="max-width:400px;">
+<form action="/Class_2/NodePage.aspx" method="get">
+<div class="input-group">
+<select class="form-control" name="proid">
+<option value="">请选择商品</option>
+{ZL.Label id="输出众筹商品下拉选择列表" NodeID="10" /}
+</select>
+<span class="input-group-btn">
+<button class="btn btn-info" type="submit"><i class="fa fa-search"></i> 查看报表</button>
+</span>
+</div><!-- /input-group -->
+</form>
+</div>
+
+<div class="outtable">
+{ZL.Label id="输出指定商品众筹报表" ProID="{$GetRequest(proid)$}" /}
+</div>
+<div>
+<button type="button" class="btn btn-success" onClick="OutToExcel();"><i class="fa fa-file-excel-o"></i> Excel导出</button>
+<button type="button" class="btn btn-success" onClick="OutToWord();"><i class="fa fa-file-word-o"></i> Word导出</button>
+</div>
+
+</body>
+</html>
+<script>
+$().ready(function(e) {
+    $("select").val("{$GetRequest(proid)$}");
+});
+function OutToExcel() {
+	var $html = $(".outtable");
+	$html.find("td").css("border", "1px solid #ddd");
+	$html.find("th").css("border", "1px solid #ddd");
+	ZLHelper.OutToExcel($html.html(), "众筹报表");
+}
+function OutToWord() {
+	var $html = $(".outtable");
+	$html.find("td").css("border", "1px solid #ddd");
+	$html.find("th").css("border", "1px solid #ddd");
+	ZLHelper.OutToWord($html.html(), "众筹报表");
+}
+</script>

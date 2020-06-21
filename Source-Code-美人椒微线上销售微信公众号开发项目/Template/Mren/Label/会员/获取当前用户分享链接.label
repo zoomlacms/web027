@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>354</LabelID>
+    <LabelName>获取当前用户分享链接</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>会员</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>ID,UserID</LabelField>
+    <LabelWhere> ZL_Commodities.UserID='{ZL:GetuserID()/}' And sales=1 And istrue=1 And Recycler=0</LabelWhere>
+    <LabelOrder>ZL_Commodities.AddTime DESC</LabelOrder>
+    <LabelContent>{ZL.Label id="编码指定字符串" Str="http://x034.2013.hx008.com/wxpromo.aspx?userid={Field="UserID"/}&amp;r=/Shop/{Field="ID"/}.aspx" /}</LabelContent>
+    <LabelCount>1</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

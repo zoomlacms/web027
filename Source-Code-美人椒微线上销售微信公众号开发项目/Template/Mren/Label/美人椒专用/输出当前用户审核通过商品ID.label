@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>351</LabelID>
+    <LabelName>输出当前用户审核通过商品ID</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>美人椒专用</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>ZL_Commodities</LabelTable>
+    <LabelField>ID</LabelField>
+    <LabelWhere>UserID='{ZL:GetuserID()/}' And Istrue=1 And Sales=1 And Recycler=0</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{Field="ID"/}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Commodities","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

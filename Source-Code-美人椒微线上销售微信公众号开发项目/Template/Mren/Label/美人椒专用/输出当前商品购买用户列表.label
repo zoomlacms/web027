@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>353</LabelID>
+    <LabelName>输出当前商品购买用户列表</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>美人椒专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ProID,0,1,商品ID</LabelParam>
+    <LabelTable>ZL_Orderinfo</LabelTable>
+    <LabelField>ZL_Orderinfo.UserID</LabelField>
+    <LabelWhere>ID in (select Orderlistid from ZL_CartPro where ProID=@ProID) And Paymentstatus=1 And Aside=0</LabelWhere>
+    <LabelOrder>AddTime Desc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li&gt;{ZL.Label id="获取指定用户头像" UserID="{Field="UserID"/}" /}  {ZL.Label id="获取指定用户真实姓名" UserID="{Field="UserID"/}" /}成功参与众筹！&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Orderinfo","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

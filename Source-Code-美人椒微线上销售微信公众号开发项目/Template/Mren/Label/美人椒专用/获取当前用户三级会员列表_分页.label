@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>323</LabelID>
+    <LabelName>获取当前用户三级会员列表_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>美人椒专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,10,1,显示数|GroupID,1,1,会员组ID</LabelParam>
+    <LabelTable>ZL_User LEFT JOIN ZL_UserBase ON ZL_User.UserID=ZL_UserBase.UserID</LabelTable>
+    <LabelField>ZL_User.salt,ZL_User.UserID,ZL_User.UserName,ZL_UserBase.Mobile</LabelField>
+    <LabelWhere>ParentUserID in (select UserID from ZL_User where ParentUserID in (select UserID from ZL_User where ParentUserID='{ZL:GetuserID()/}')) And GroupID='@GroupID'</LabelWhere>
+    <LabelOrder>UserName DESC</LabelOrder>
+    <LabelContent>{Repeate}&lt;div class="media"&gt;
+&lt;div class="media-left"&gt;&lt;a href="#"&gt;&lt;img class="media-object" src="{Field="salt"/}" alt="{Field="UserName"/}" onerror="this.src='/images/userface/noface.gif'" data-uid="{Field="UserID"/}"  /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;div class="media-body media-middle"&gt;
+&lt;h4 class="media-heading"&gt;{ZL.Label id="获取指定用户真实姓名" UserID="{Field="UserID"/}" /}&lt;/h4&gt;
+&lt;p&gt;
+会员类型：&lt;span style="color:#c00;"&gt;{ZL.Label id="获取指定会员类型" UserID="{Field="UserID"/}" /}&lt;/span&gt;&lt;br/&gt;
+消费：&lt;span style="color:#c00;"&gt;&lt;i class="fa fa-rmb"&gt;&lt;/i&gt; {ZL.Label id="获取指定会员消费总金额" UserID="{Field="UserID"/}" /}&lt;/span&gt;&lt;br/&gt;
+手机：&lt;span style="color:#c00;"&gt;{Field="Mobile"/}&lt;/span&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;{/Repeate}
+{ZL.Page id="响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":"ZL_UserBase"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

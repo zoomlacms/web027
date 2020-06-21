@@ -1,0 +1,94 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的乐享</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script>
+$.post("/API/UserCheck.ashx?action=HasLogged", "", function (data) {
+	if (!data || data == "-1") {
+		location = "/wxpromo.aspx?r="+window.location.href;
+	}
+});
+</script>
+</head>
+<body>
+<div class="muser_tui_s">
+<span>累计收益</span>
+<strong>{ZL.Label id="获取当前用户返利总金额" /}</strong>
+<p><a href="/User/Money/WithDraw" class="btn btn-info">提现申请</a></p>
+</div>
+
+<div class="fenxiao_top"><i class="fa fa-users"></i> 我的下级</div>
+
+<div class="fenxiao_all">
+<table class="table table-bordered">
+<tr>
+<td>级数</td>
+<td>消费金额</td>
+<td>成员数（人）</td>
+<td>奖金</td>
+</tr>
+<tr>
+<td>高级乐享会员</td>
+<td style="padding:0;"><a href="/Class_8/NodeNews.aspx"><span><i class="fa fa-rmb"></i> {ZL.Label id="输出当前会员指定商品一级会员总消费_按人头" /}</span><br/>查看明细</a></td>
+<td style="padding:0;"><a href="/Class_8/NodeNews.aspx"><span>{ZL.Label id="输出当前会员指定商品一级会员总数" ProID="4" /}</span><br/>查看成员</a></td>
+<td style="padding:0;"><a href="/Class_8/NodeNews.aspx"><span>{ZL.Label id="输出当前会员指定商品一级会员总数" ProID="4" /}个商品</span><br/>查看详情</a></td>
+</tr>
+<tr>
+<td>中级乐享会员</td>
+<td style="padding:0;"><a href="/Class_8/NodeHot.aspx"><span><i class="fa fa-rmb"></i> {ZL.Label id="输出当前会员指定商品二级会员总消费_按人头" /}</span><br/>查看明细</a></td>
+<td style="padding:0;"><a href="/Class_8/NodeHot.aspx"><span>{ZL.Label id="输出当前会员指定商品二级会员总数" ProID="4" /}</span><br/>查看成员</a></td>
+<td style="padding:0;"><a href="/Class_8/NodeHot.aspx"><span>{ZL.Label id="输出当前会员指定商品二级返利" ProID="4" /}</span><br/>查看详情</a></td>
+</tr>
+<tr>
+<td>初级乐享会员</td>
+<td style="padding:0;"><a href="/Class_8/NodeElite.aspx"><span><i class="fa fa-rmb"></i> {ZL.Label id="输出当前会员指定商品三级会员总消费_按人头" ProID="4" /}</span><br/>查看明细</a></td>
+<td style="padding:0;"><a href="/Class_8/NodeElite.aspx"><span>{ZL.Label id="输出当前会员指定商品三级会员总数" ProID="4" /}</span><br/>查看成员</a></td>
+<td style="padding:0;"><a href="/Class_8/NodeElite.aspx"><span>{ZL.Label id="输出当前会员指定商品三级返利" ProID="4" /}</span><br/>查看详情</a></td>
+</tr>
+</table>
+</div>
+
+{ZL.Label id="在线客服"/}
+{ZL.Label id="微信弹出菜单"/}
+{ZL.Label id="微信底部"/}
+</body>
+</html>
+<script>
+//微信弹出菜单效果
+$(function(){
+	//menu float
+	var menufloatclicknumber=0;
+	function menufloatin(){
+		$(".menu-c").removeClass("out");
+		$("#menufloat").addClass("show")
+		$(".mask_menu").fadeIn();
+		$("#menufloat-c").show();
+		$(".menu-c-inner").removeClass("outer");
+		$(".menu-c-inner").addClass("in")
+		$(".menu-c-inner a").show();
+		menufloatclicknumber=1;
+	}
+	function menufloatout(){
+		$("#menufloat").removeClass("show")
+		$(".mask_menu").fadeOut();
+		$(".menu-c-inner").removeClass("in")
+		$(".menu-c-inner").addClass("outer")
+		$(".menu-c-inner a").hide();
+		$(".menu-c").addClass("out");
+		menufloatclicknumber=0;		
+	}	   
+	$("#menufloat").click(function(){
+		if(menufloatclicknumber==0){ menufloatin(); }
+		else { menufloatout();}			 	
+	})
+	$(".mask_menu").click(function(){
+		menufloatout(); 
+	})
+});
+</script>

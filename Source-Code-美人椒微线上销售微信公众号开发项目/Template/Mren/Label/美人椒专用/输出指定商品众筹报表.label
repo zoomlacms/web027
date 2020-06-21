@@ -1,0 +1,52 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>333</LabelID>
+    <LabelName>输出指定商品众筹报表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>美人椒专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ProID,0,1,商品ID</LabelParam>
+    <LabelTable>ZL_User</LabelTable>
+    <LabelField>UserID,UserName,PERMISSIONS</LabelField>
+    <LabelWhere>UserID in (select Userid from ZL_Orderinfo where ID in (select Orderlistid from ZL_CartPro where ProID='@ProID') And Paymentstatus=1 And Aside=0)</LabelWhere>
+    <LabelOrder>ZL_User.UserID ASC</LabelOrder>
+    <LabelContent>&lt;table class="table table-bordered"&gt;
+&lt;tr&gt;
+&lt;th&gt;下单时间&lt;/th&gt;
+&lt;th&gt;用户名&lt;/th&gt;
+&lt;th&gt;微信昵称&lt;/th&gt;
+&lt;th&gt;用户ID&lt;/th&gt;
+&lt;th&gt;订单编号&lt;/th&gt;
+&lt;th&gt;初级乐享会员&lt;/th&gt;
+&lt;th&gt;中级乐享会员&lt;/th&gt;
+&lt;th&gt;高级乐享会员&lt;/th&gt;
+&lt;/tr&gt;
+{Repeate}
+&lt;tr&gt;
+&lt;td&gt;{ZL.Label id="输出指定用户指定商品购买时间" ProID="@ProID" UserID="{Field="UserID"/}" /}&lt;/td&gt;
+&lt;td&gt;{Field="UserName"/}&lt;/td&gt;
+&lt;td&gt;{Field="PERMISSIONS"/}&lt;/td&gt;
+&lt;td&gt;{Field="UserID"/}&lt;/td&gt;
+&lt;td&gt;{ZL.Label id="输出指定用户指定商品订单编号" ProID="@ProID" UserID="{Field="UserID"/}" /}&lt;/td&gt;
+&lt;td&gt;{ZL.Label id="输出指定会员指定商品一级会员总数" ProID="@ProID" UserID="{Field="UserID"/}" /}&lt;/td&gt;
+&lt;td&gt;{ZL.Label id="输出指定会员指定商品二级会员总数" ProID="@ProID" UserID="{Field="UserID"/}" /}&lt;/td&gt;
+&lt;td&gt;{ZL.Label id="输出指定会员指定商品三级会员总数" ProID="@ProID" UserID="{Field="UserID"/}" /}&lt;/td&gt;
+&lt;/tr&gt;{/Repeate}
+&lt;/table&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_User","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

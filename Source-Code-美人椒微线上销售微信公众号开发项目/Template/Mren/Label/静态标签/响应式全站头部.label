@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>253</LabelID>
+    <LabelName>响应式全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;nav class="navbar navbar-default navbar-fixed-top hidden-xs" role="navigation" id="home_scolls"&gt;
+&lt;div class="container"&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
+&lt;span class="sr-only"&gt;智能切换导航&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a class="navbar-brand" href="/"&gt;&lt;img alt='逐浪CMS' src="{$CssDir/}images/logo.png" /&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="navbar-collapse collapse"&gt;
+&lt;ul class="nav navbar-nav"&gt;
+&lt;li&gt;&lt;a href="/"&gt;首页&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(7)/}"&gt;商城&lt;/a&gt;&lt;/li&gt;
+&lt;li class="active"&gt;&lt;a href="{ZL:GetNodeLinkUrl(1)/}"&gt;产品系列&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(2)/}"&gt;关于美人椒&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/index" target="_blank"&gt;美人椒社区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(3)/}"&gt;新闻资讯&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(5)/}"&gt;授权代理商&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(2)/}"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;form class="navbar-form navbar-left" role="search" method="get" action="/Search/SearchList" target="_blank"&gt;
+&lt;div class="input-group"&gt;
+&lt;input type="text" class="form-control" name="keyword" placeholder="全站检索"&gt;
+&lt;span class="input-group-btn"&gt;
+&lt;button type="submit" class="btn btn-default"&gt;搜索&lt;/button&gt;
+&lt;/span&gt;
+&lt;/div&gt;&lt;!-- /input-group --&gt;
+&lt;/form&gt;
+&lt;ul class="nav navbar-nav navbar-right"&gt;
+&lt;li class="nav_user"&gt;&lt;a href="#" class="dropdown-toggle" data-toggle="dropdown"&gt;&lt;i class="fa fa-user"&gt;&lt;/i&gt;登录 &lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;&lt;a href="/User/" target="_blank"&gt;用户登录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Register" target="_blank"&gt;用户注册&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/User/Info/UserInfo" target="_blank"&gt;注册信息&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="javascript:;" onClick="LogoutFun();"&gt;安全退出&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+&lt;!-- 导航到此结束 --&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

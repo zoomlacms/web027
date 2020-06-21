@@ -1,0 +1,251 @@
+﻿@using ZoomLa.Common
+@using ZoomLa.BLL
+@using ZoomLa.Model
+@using System.Data
+@using ZoomLaCMS.Models.Field
+@using ZoomLa.AppCode.Controls
+@model ZoomLaCMS.Models.Content.VM_Content
+@functions { 
+    public string GetFieldAlias(string field)
+    {
+        return B_Content.GetFieldAlias(field,Model.fieldDT);
+    }
+}
+@{
+    B_Spec spbll = new B_Spec();
+    DataTable ddlDT = ViewBag.ddlDT as DataTable;
+    Layout = "~/Areas/AdminMVC/Views/Shared/_layout.cshtml";
+}
+@section head{
+<title>管理@(Model.modelMod.ItemName)</title>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.config.js"></script>
+<script charset="utf-8" src="/Plugins/Ueditor/ueditor.all.js"></script>   
+}
+@section content{
+<div id="BreadDiv" class="container-fluid mysite">
+    <div class="row">
+        <ol id="BreadNav" class="breadcrumb navbar-fixed-top">
+            <li><a href="/Admin/I/Main.aspx">工作台</a></li>
+            <li><a href="ContentManage.aspx">内容管理</a></li>
+            <li><a href="ContentManage.aspx?NodeID=100">@Model.nodeMod.NodeName</a></li>
+            <li class="active">[向本栏目添加@(Model.modelMod.ItemName)]</li>
+            <div class="pull-right hidden-xs">
+                <span>
+                    <a href="/Admin/Content/SchedTask.aspx" title="查看计划任务"><span class="fa fa-clock-o" style="color:#28b462;"></span></a>
+                    <a href="/Class_@Model.NodeID/Default.aspx" target="_blank" title="前台浏览"><span class="fa fa-eye"></span></a>
+                    <span onclick="ShowDiag('EditNode.aspx?NodeID=@Model.NodeID','配置本节点');" class="fa fa-cog" title="配置本节点" style="cursor:pointer;margin-left:5px;">
+                    </span>
+                </span>
+            </div>
+        </ol>
+    </div>
+</div>
+<div class="manage_content">
+    <div class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#ConInfo" data-toggle="tab">内容信息</a></li>
+            <li><a href="#InfoAttr" data-toggle="tab">信息属性</a></li>
+            <li><a href="#Process " data-toggle="tab">流程控制</a></li>
+            <li><a href="#Copyright " data-toggle="tab">版权管理</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="ConInfo">
+                <table id="mainTable" class="table table-bordered table_padding0 addcontent_modeltale">
+                    <tr>
+                        <td style="overflow-x: hidden;" class="col-sm-1 col-xs-1 fd_td_l">
+                            <label>@GetFieldAlias("Title")：</label>
+                        </td>
+                        <td class="col-sm-11 col-xs-11">
+                            <input type="text" id="txtTitle" name="txtTitle" Style="background: url(/Images/bg1.gif) repeat-x;" class="form-control m715-50 required" onkeyup="isgoEmpty('txtTitle','span_txtTitle');Getpy('txtTitle','PYtitle')" />
+                            <span class="vaild_tip">*</span>
+                            <button type="button" class="btn btn-info btn-sm" onclick="ShowTitle()"><i class="fa fa-info"></i>标题属性</button>
+                            <button type="button" class="btn btn-info btn-sm" onclick="ShowContentList()"><i class="fa fa-chain"></i>关联内容</button>
+                            <button type="button" class="btn btn-info btn-sm" onclick="ShowSys();"><i class="fa fa-list"></i></button>
+                            <span id="span_txtTitle" name="span_txtTitle"></span>
+                            <input type="hidden" id="ThreadStyle" name="" value="@Model.conMod.TitleStyle" />
+                            <div id="duptitle_div" class="alert alert-warning" style="position: absolute; margin-left: 315px; display: none;">
+                                <ul id='duptitle_ul'></ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tbody id="Sys_Fied" style="display: none;">
+                        <tr>
+                            <td class="fd_td_l"><span>拼音缩写：</span></td>
+                            <td>
+                                @Html.TextBox("PYtitle", Model.conMod.PYtitle,new {@class="form-control m715-50" })
+                            </td>
+                        </tr>
+                        <tr id="spec_tr">
+                            <td class="fd_td_l"><span>所属专题：</span></td>
+                            <td>
+                                <div class="specDiv"></div>
+                                <span id="specbtn_span">
+                                    @if (spbll.GetFirstID() > 0)
+                                    {<button type='button' class='btn btn-info btn-sm' onclick='ShowSpDiag()'>添加至专题</button> }
+                                    else
+                                    { <div style='margin:5px;' class='btn btn-default disabled'><span class='fa fa-info-circle'></span> 尚未定义专题</div>}
+                                </span>
+                                @Html.Hidden("Spec_Hid",Model.conMod.SpecialID)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fd_td_l">
+                                <label>@GetFieldAlias("TagKey")</label>
+                            </td>
+                            <td>
+                                <div id="OAkeyword"></div>
+                                <input type="text" id="Keywords" name="Keywords" value="@Model.conMod.TagKey" class="form-control" />
+                                @*<asp:HiddenField runat="server" ID="IgnoreKey_Hid" />*@
+                                <span>(空格或回车键分隔，长度不超过10字符或5汉字)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fd_td_l"><label>@GetFieldAlias("Subtitle")</label></td>
+                            <td>
+                                @Html.TextBox("Subtitle", Model.conMod.Subtitle, new { @class = "form-control m715-50" })
+                            </td>
+                        </tr>
+                    </tbody>
+                   @Html.Partial("Fields/Index_User_AddContent", new VM_FieldModel(Model.ModelID, Model.NodeID, new ModelConfig() { Source = ModelConfig.SType.Admin }, Model.conMod.GeneralID))
+                    <tr id="attPic">
+                        <td class="fd_td_l">主编辑器扩展图：</td>
+                        <td style="height: 80px;">
+                            <ul id="ThumImg_ul" class="preview_img_ul"></ul>
+                            <div class="clearfix"></div>
+                            @Html.Hidden("ThumImg_Hid",Model.conMod.TopImg)
+                        </td>
+                    </tr>
+                    @if (Model.nodeMod.ListPageHtmlEx < 3)
+                    {
+                        <tr>
+                            <td class="fd_td_l">生成@(Model.modelMod.ItemName)</td>
+                            <td>
+                                <label>@(Html.CheckBox("quickmake", false))是否立即生成</label>
+                            </td>
+                        </tr>
+                    }
+                    
+                </table>
+                <div style="height: 50px;"></div>
+            </div>
+            <div class="tab-pane fade" id="InfoAttr">
+                <table class="table table-bordered table_padding0">
+                    <tr>
+                        <td class="fd_td_l td_l">录入者</td>
+                        <td>
+                            @Html.TextBox("Inputer", Model.conMod.Inputer, new { @class = "form-control text_md", disabled = "disabled" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l">添加时间</td>
+                        <td>
+                            @Html.TextBox("CreateTime", Model.conMod.CreateTime, new { @class = "form-control text_md", onclick = "WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l">
+                            <label>@GetFieldAlias("UpDateTime")</label>
+                        </td>
+                        <td>
+                            @Html.TextBox("UpDateTime", Model.conMod.UpDateTime, new { @class = "form-control text_md", onclick = "WdatePicker({ dateFmt: 'yyyy-MM-dd HH:mm:ss' })" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l">
+                            <label>@GetFieldAlias("Hits")</label>
+                        </td>
+                        <td>
+                            @Html.TextBox("Hits", Model.conMod.Hits, new { @class = "form-control text_md" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l">允许评论</td>
+                        <td>
+                            @MVCHelper.H_Radios("IsComm_Radio","是,否".Split(','),"1,0".Split(','), Model.conMod.IsComm.ToString())
+                            <span class="pull-left rd_green">(该操作只在节点管理下配置了允许发表评论时生效!)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l">个性模板</td>
+                        <td>
+                            @MvcHtmlString.Create(PageCommon.GetTlpDP("TemplateUrl"))
+                            <input type="hidden" id="TemplateUrl_hid" name="TemplateUrl_hid" value="@Model.conMod.Template" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l">生成PDF文件</td>
+                        <td>
+                           <label>@(Html.CheckBox("Makepdf", false))启用</label>
+                        </td>
+                    </tr>
+                </table>
+                @*<ZL:TlpListView ID="TlpView_Tlp" IsFirstSelect="False" TemplateTitle="name" runat="server" />*@
+            </div>
+            <div class="tab-pane fade" id="Process">
+                <table class="table table-bordered">
+                    <tr>
+                        <td class="fd_td_l td_l">
+                            <label>@GetFieldAlias("EliteLevel")</label>
+                        </td>
+                        <td>
+                            <label>@(Html.CheckBox("EliteLevel", Model.conMod.EliteLevel==1))推荐</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fd_td_l"><label>@GetFieldAlias("Status")</label></td>
+                        <td>
+                            @MVCHelper.H_Radios("ddlFlow",ddlDT,"PName", "PPassCode", Model.conMod.Status.ToString())
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="Copyright">
+                <div class="alert alert-info">
+                    <span><strong>提示：</strong></span>
+                    未识别到文章ID,请保存后重编辑设定。
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Conent_fix">
+        @Html.Hidden("RelatedIDS_Hid",Model.conMod.RelatedIDS)
+        <input type="button" value="@((Model.conMod.GeneralID>0?"修改":"添加")+ Model.modelMod.ItemName)" onclick="mvcpage.help.submit({url:'Content_Add'});" class="Btn btn-primary" />
+        <input type="button" value="存为草稿" onclick="mvcpage.help.submit({url:'Content_Draft'});" class="Btn btn-primary" />
+        <a href="ContentManage.aspx?NodeID=@Model.NodeID" class="btn btn-primary">返回列表</a>
+        <a href="javascript:;" id="toTop" onclick="Control.Scroll.ToTop();"><i class="fa fa-upload"></i>Top</a>
+    </div>
+    <div id="pushcon_div" class="alert alert-info">
+        <div>保存时自动推送<a href="javascript:$('#pushcon_div').hide();;" title="隐藏"><span class="fa fa-remove"></span></a></div>
+        <ul id="pushcon_ul" class="list-unstyled"></ul>
+        @Html.Hidden("pushcon_hid")
+    </div>
+@Html.Partial("C_TlpDP", new C_TlpDP("TemplateIndex",""))
+</div>    
+}
+@section script{
+<script>
+    var zlconfig = {
+        updir: "@ZoomLa.Components.SiteConfig.SiteOption.UploadDir.ToLower()",
+        duptitlenum: "@ZoomLa.Components.SiteConfig.SiteOption.DupTitleNum",
+        modelid: "@Model.ModelID",
+        keys:"@Request["keys"]"
+        };
+</script>
+<script src="/JS/OAKeyWord.js"></script>
+<script src="/JS/DatePicker/WdatePicker.js"></script>
+<script src="/JS/chinese.js"></script>
+<script src="/JS/Common.js"></script>
+<script src="/JS/Controls/ZL_Dialog.js"></script>
+<script src="/JS/Controls/Control.js"></script>
+<script src="/JS/ICMS/tags.json"></script>
+<script src="/JS/ZL_Content.js"></script>
+<script>
+    $(function () {
+        Tlp_initTemp();
+    });
+    //智能模板选择事件
+    function OnTemplateViewCheck(value) {
+        $("#TxtTemplate_hid").val(value);
+    }
+</script>    
+}
